@@ -6,10 +6,16 @@ input {
 span {
   margin-left: 20%;
 }
-button {
+.btnTask2 {
   padding: 15px 30px;
   margin-left: 20%;
   margin-top: 2%;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: large;
+  cursor: pointer;
 }
 .displayT {
   margin-left: 20%;

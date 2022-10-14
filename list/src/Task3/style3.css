@@ -1,0 +1,19 @@
+.container{
+    margin-bottom: 5%;
+}
+.row{
+    display: flex;
+}
+.column1{
+    margin-left: 20%;
+    border: 1px solid black;
+    padding: 20px;
+}
+.column2{
+    margin-left: 4%;
+}
+.column3{
+    margin-left: 4%;
+    border: 1px solid black;
+    padding: 20px;
+}

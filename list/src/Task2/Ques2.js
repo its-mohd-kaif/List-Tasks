@@ -1,32 +1,45 @@
 import React, { useState } from "react";
 import "./style2.css";
 function Ques2() {
+  // UseState For Input Boxes
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  // UseState for result
   const [result, setResult] = useState([]);
 
   const inputID = (event) => {
-    setId(event.target.value);
+    // Check Validation
+    if (event.target.value < 0) {
+      alert("Please type positive value");
+    } else {
+      setId(event.target.value);
+    }
   };
   const inputName = (event) => {
     setName(event.target.value);
   };
   const inputPrice = (event) => {
-    setPrice(event.target.value);
+    // Check Validation
+    if (event.target.value < 0) {
+      alert("Please type positive value");
+    } else {
+      setPrice(event.target.value);
+    }
   };
   const addProduct = () => {
-    if(id==="" || name==="" || price==="" ||result===""){
-      alert("Input Field can not be blank!!!")
-    }else{
+    // Check Validation
+    if (id === "" || name === "" || price === "" || result === "") {
+      alert("Input Field can not be blank!!!");
+    } else {
       let obj = {
         userId: id,
         userName: name,
         userPrice: price,
       };
+      // Push Data into array
       setResult([...result, obj]);
     }
-   
   };
 
   return (
@@ -58,19 +71,19 @@ function Ques2() {
         placeholder="type product price..."
       />
       <br></br>
-      <button onClick={addProduct}>ADD PRODUCT</button>
+      <button className="btnTask2" onClick={addProduct}>
+        ADD PRODUCT
+      </button>
       <div className="displayT">
         <table id="incomplete-tasks">
           <thead>
-            
-              <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Product Price</th>
-              </tr>
-            
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+            </tr>
           </thead>
-
+          {/* Display with the help of Map function */}
           {result.map((ele) => (
             <tbody>
               <tr key={ele.userId}>
@@ -84,7 +97,6 @@ function Ques2() {
       </div>
       <hr></hr>
     </div>
-    
   );
 }
 
