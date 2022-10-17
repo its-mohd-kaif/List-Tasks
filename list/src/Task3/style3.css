@@ -6,14 +6,19 @@
 }
 .column1{
     margin-left: 20%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20px;
 }
 .column2{
-    margin-left: 4%;
+    margin-left: 12%;
 }
 .column3{
     margin-left: 4%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20px;
+}
+.group{
+    width: 200%;
+    padding: 10px;
+    height: max-content;
 }

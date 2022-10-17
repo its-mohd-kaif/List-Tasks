@@ -1,23 +1,56 @@
 import React, { useState, useEffect } from "react";
 import "./style3.css";
 function Ques3() {
-  const li1 = ["Ajax", "jQuery", "javaScirpt", "MooTools", "Prototype", "Dojo"];
-  const li2 = ["ASP.NET", "C#", "VB.NET", "Java", "PHP", "Python"];
+ 
   // Usestate for holding list value
-  const [group1, setGroup1] = useState([]);
-  const [group2, setGroup2] = useState([]);
+  const [group1, setGroup1] = useState();
+  const [group2, setGroup2] = useState();
   // UseEffect for rendering one time list when page is loaded
   useEffect(() => {
+    const li1 = ["Ajax", "jQuery", "javaScirpt", "MooTools", "Prototype", "Dojo"];
+    const li2 = ["ASP.NET", "C#", "VB.NET", "Java", "PHP", "Python"];
     setGroup1(li1);
     setGroup2(li2);
   }, []);
   // Transfer data from list1 to list2
   const leftToright = () => {
-    setGroup1(li2);
-    setGroup2(li1);
+    // console.log("LI1",li1)
+    // console.log("LI2",li2)
+    let selected = document.querySelectorAll("#group1 option:checked");
+    let values = Array.from(selected).map((el) => el.value);
+
+    console.log("First",values)
+
+    values.forEach((element) => {
+      li1.forEach((element2, index) => {
+        if (element === element2) {
+          li1.splice(index, 1);
+        }
+      });
+      li2.push(element);
+    });
+  
+    console.log("LI1",li1)
+    console.log("LI2",li2)
+    setGroup1(li1);
+    setGroup2(li2);
+   
   };
   // Transfer data from list2 to list1
   const rightToleft = () => {
+    let selected = document.querySelectorAll("#group2 option:checked");
+    let values = Array.from(selected).map((el) => el.value);
+    console.log("Second",values)
+
+
+    values.forEach((element) => {
+      li2.forEach((element2, index) => {
+        if (element === element2) {
+          li2.splice(index, 1);
+        }
+      });
+      li1.push(element);
+    });
     setGroup1(li1);
     setGroup2(li2);
   };
@@ -29,14 +62,13 @@ function Ques3() {
       <div className="container">
         <div className="row">
           <div className="column1">
-            <ul>
+            <select name="group1" id="group1" className="group" multiple>
               {group1.map((list) => (
-                <li key={list}>{list}</li>
+                <option value={list}>{list}</option>
               ))}
-            </ul>
+            </select>
           </div>
           <div className="column2">
-            <br></br>
             <br></br>
             <br></br>
             <button onClick={leftToright}>➡</button>
@@ -45,11 +77,11 @@ function Ques3() {
             <button onClick={rightToleft}>⬅</button>
           </div>
           <div className="column3">
-            <ul>
+            <select name="group2" id="group2" className="group" multiple>
               {group2.map((list) => (
-                <li key={list}>{list}</li>
+                <option value={list}>{list}</option>
               ))}
-            </ul>
+            </select>
           </div>
         </div>
       </div>
