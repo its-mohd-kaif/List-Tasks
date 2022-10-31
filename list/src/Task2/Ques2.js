@@ -39,6 +39,9 @@ function Ques2() {
       };
       // Push Data into array
       setResult([...result, obj]);
+      setId("");
+      setName("");
+      setPrice("");
     }
   };
 
@@ -55,6 +58,7 @@ function Ques2() {
         type={"number"}
         onChange={inputID}
         placeholder="type product id..."
+        value={id}
       />
       <br></br>
       <span>Product Name</span>
@@ -62,6 +66,7 @@ function Ques2() {
         type={"text"}
         onChange={inputName}
         placeholder="type product name..."
+        value={name}
       />
       <br></br>
       <span>Product Price</span>
@@ -69,6 +74,7 @@ function Ques2() {
         type={"number"}
         onChange={inputPrice}
         placeholder="type product price..."
+        value={price}
       />
       <br></br>
       <button className="btnTask2" onClick={addProduct}>

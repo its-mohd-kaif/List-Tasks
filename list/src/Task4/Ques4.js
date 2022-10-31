@@ -34,6 +34,7 @@ export default class Ques4 extends Component {
       this.setState((prevState) => ({
         list: [...prevState.list, obj],
       }));
+      this.setState({ username: "" });
     }
   }
   // Delete Function
@@ -58,6 +59,7 @@ export default class Ques4 extends Component {
             type={"text"}
             placeholder={"Enter New Item"}
             onChange={this.updateInput}
+            value={this.state.username}
           />
           <button onClick={this.handleSubmit} className="btnTask4">
             ADD
